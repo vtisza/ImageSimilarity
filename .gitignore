@@ -1,2 +1,7 @@
 pics/
 .ipynb_checkpoints/
+.vscode/
+train_images/
+features.dat
+pca.model
+images.list
