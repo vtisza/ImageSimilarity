@@ -5,3 +5,7 @@ train_images/
 features.dat
 pca.model
 images.list
+__pycache__/
+uploads/
+data/
+car_crash/

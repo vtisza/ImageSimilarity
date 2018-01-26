@@ -29,7 +29,7 @@ def get_closest_images(feature, pca_features, images,num_results=10):
     distances = [ distance.euclidean(feature, feat) for feat in pca_features ]
     idx_closest = sorted(range(len(distances)), key=lambda k: distances[k])[1:num_results+1]
     distances = list(np.array(distances)[idx_closest])
-    images=images[idx_closest]
+    images=list(np.array(images)[idx_closest])
     return images, distances
 
 def get_concatenated_images(indexes, thumb_height):
@@ -42,15 +42,15 @@ def get_concatenated_images(indexes, thumb_height):
     return concat_image
 
 def load_files():
-    features=pickle.load( open( "features.dat", "rb" ) )
-    pca=pickle.load( open( "pca.model", "rb" ) )
-    images=pickle.load( open( "images.list", "rb" ) )
+    features=pickle.load( open( "./data/features.dat", "rb" ) )
+    pca=pickle.load( open( "./data/pca.model", "rb" ) )
+    images=pickle.load( open( "./data/images.list", "rb" ) )
     return features,pca,images
 
 def predict_picture(picture_path,model,pca):
     img, x = get_image(picture_path);
-    feat = feat_extractor.predict(x)[0]
-    feat=pca.transform(feat)
+    feat = model.predict(x)[0]
+    feat=pca.transform(feat.reshape(1,-1))
     return feat
 
 def closest(picture_path):

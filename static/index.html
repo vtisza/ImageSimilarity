@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>SIMI - Similar Image Identifier</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link rel="stylesheet" href="./css/main.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="./js/app.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Oxygen" rel="stylesheet">
+</head>
+
+<!--Navigation Bar-->
+<body id="top">
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span> 
+      </button>
+      <div class="navbar-brand">SIMILAR IMAGE IDENTIFIER</div>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#second">HOW IT WORKS</a></li>
+        <li><a href="#third">FIND SIMILARS</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- First Container (Splash)-->
+<div class="container-fluid bg-0 text-center" id="first">
+<h1>Upload your picture and see magic happening</h1><br><br>
+  <label class="btn btn-default btn-lg">
+   <span class="glyphicon glyphicon-phone"></span> Select picture <input type="file" hidden id="uploader"/>
+  <label/>
+</div>
+
+<!-- Second Container (How this works)-->
+<div class="container-fluid bg-1 text-center" id ="second">
+  <h2>How it works</h2>
+  <h4>We use a convolutional neural network to compress the content of a pictures into a shorter vector representation. It enables us to take a new picture and find similar ones in our database.</h4>
+  <br>
+  <div class="row">
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-phone logo-small"></span>
+      <h4>SNAP</h4>
+      <p>Select/take a picture</p>
+    </div>
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-upload logo-small"></span>
+      <h4>SUBMIT</h4>
+      <p>Upload your picture to Similar Image Identifier </p>
+    </div>
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-cog logo-small"></span>
+      <h4>ASSESS</h4>
+      <p>Let the power of the convolutional neural network make comparison between your uploaded picture and your previously indexed photos </p>
+    </div>
+    <div class="col-sm-3">
+      <span class="glyphicon glyphicon-file logo-small"></span>
+      <h4>RESULTS</h4>
+      <p>See similar images</p>
+    </div>
+    </div>
+    <br><br>
+</div>
+  
+  <!-- Third Container (Splash)-->
+<div class="container-fluid bg-3 text-center" id="third">
+  <img class="simi" id="simi1" src="" width="40vw"/>
+  <img class="simi" id="simi2" src="" width="40vw"/>
+  <img class="simi" id="simi3" src="" width="40vw"/>
+  <img class="simi" id="simi4" src="" width="40vw"/>
+  <img class="simi" id="simi5" src="" width="40vw"/>
+  <img class="simi" id="simi6" src="" width="40vw"/>
+</div>
+
+</body>
+
+<footer class="bg-4 text-center">
+  <a class="up-arrow" href="#top" data-toggle="tooltip" title="TO TOP">
+    <span class="glyphicon glyphicon-chevron-up"></span>
+  </a><br><br>
+  <p>Created by Viktor Tisza, 2018. <br>
+  <a href="mailto:vtisza@gmail.com" title="Email">Email</a> | <a href="https://github.com/vtisza" title="Github">Github</a> | <a href="https://www.linkedin.com/in/viktor-tisza-5309b28/" title="Linkedin">Linkedin</a></p> 
+</footer>
+</html>
