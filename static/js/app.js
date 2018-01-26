@@ -40,6 +40,10 @@ $(document).ready(function(){
                       $("#simi4").attr('src', response.images[3]);
                       $("#simi5").attr('src', response.images[4]);
                       $("#simi6").attr('src', response.images[5]);
+                      $("#simi7").attr('src', response.images[6]);
+                      $("#simi8").attr('src', response.images[7]);
+                      $("#simi9").attr('src', response.images[8]);
+                      $("#simi10").attr('src', response.images[9]);
 
                       $('html, body').animate({
                         scrollTop: $("#third").offset().top

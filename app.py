@@ -10,6 +10,8 @@ from werkzeug.utils import secure_filename
 
 import score
 
+model,features,pca,images=score.startup()
+
 UPLOAD_FOLDER = join(dirname(realpath(__file__)), 'uploads') # where uploaded files are stored
 ALLOWED_EXTENSIONS = set(['png', 'PNG', 'jpg', 'JPG', 'jpeg', 'JPEG', 'gif', 'GIF']) # models support png and gif as well
 
@@ -27,9 +29,9 @@ def home():
 	return app.send_static_file('index.html')
 	#return url_for('./resources/index.html')
 
-@app.route('/car_crash/<car_image>')
-def image(car_image):
-	filename="./car_crash/"+car_image
+@app.route('/pics/<path:path>')
+def image(path):
+	filename="./pics/"+path
 	return send_file(filename, mimetype='image/gif')
 
 @app.route('/js/app.js')
@@ -62,9 +64,9 @@ def upload_and_classify():
 			filename = secure_filename(file.filename) # used to secure a filename before storing it directly on the filesystem
 			file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
 			filepath = os.path.join(app.config['UPLOAD_FOLDER'], filename)
-			images, distances = score.closest(filepath)
+			images_close, distances = score.closest(filepath,model,features,pca,images)
 
-			return jsonify(images=images,distances=distances)
+			return jsonify(images=images_close,distances=distances)
 			#return jsonify(images=[filepath])
 	
 	flash('Invalid file format - please try your upload again.')

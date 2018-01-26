@@ -53,12 +53,17 @@ def predict_picture(picture_path,model,pca):
     feat=pca.transform(feat.reshape(1,-1))
     return feat
 
-def closest(picture_path):
-    features,pca,images=load_files()
-    model=create_model()
+def closest(picture_path, model,features,pca,images):
+    #features,pca,images=load_files()
+    #model=create_model()
     feat=predict_picture(picture_path,model,pca)
     sim_images, distances=get_closest_images(feat, features, images)
     return sim_images, distances
+
+def startup():
+    features,pca,images=load_files()
+    model=create_model()
+    return model,features,pca,images
 
 if __name__ == "__main__":
     closest()
